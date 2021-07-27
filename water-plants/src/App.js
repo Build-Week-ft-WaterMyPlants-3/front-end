@@ -1,5 +1,12 @@
+import React from "react";
+import SignupForm from "./components/common/signupForm";
+
 function App() {
-	return <div className='App'></div>;
+  return (
+    <div className="App">
+      <SignupForm />
+    </div>
+  );
 }
 
 export default App;
