@@ -1,17 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function SignInForm(props) {
 const {
     values,
     submit,
     change,
-    disabled,
+    // disabled,
     errors,
 } = props
 
 const onSubmit = evt => {
     evt.preventDefault()
     submit()
+}
+
+const [open, setOpen] = useState(false)
+
+function toggle() {
+    setOpen(wasOpened => !wasOpened)
 }
 
 const onChange = evt => {
@@ -22,8 +28,10 @@ const onChange = evt => {
 }
 
 return (
+    
+    <div><button onClick={toggle}>Sign In</button>{open && (
     <form className="form-container" id='signinform' onSubmit={onSubmit}>
-
+        
         <div className="form-username input">
             <h3>Username: </h3>
                 <label>
@@ -47,6 +55,7 @@ return (
                     // value={values.phonenumber}
                     />
                 </label>
+                </div>
 
         <div className="form-password input">
             <h3>Password: </h3>
@@ -63,22 +72,24 @@ return (
         <div className="form-submit input">
             <button id='signup-button' name='submitBtn' /*disabled={disabled}*/>Sign In</button>
         </div>
-        </div>
+         
+         
     </form>
+    )} </div>
 )
 
 }
 
-function SignInInfo({details}) {
-    if(!details) {
-        return <h3>Please sign in</h3>
-    }
+// function SignInInfo({details}) {
+//     if(!details) {
+//         return <h3>Please sign in</h3>
+//     }
 
-    return (
-        <div className="signin-info container">
-            <p>{details.username}</p>
-            <p>{details.phonenumber}</p>
-            <p>{details.password}</p>
-        </div>
-    )
-}
+//     return (
+//         <div className="signin-info container">
+//             <p>{details.username}</p>
+//             <p>{details.phonenumber}</p>
+//             <p>{details.password}</p>
+//         </div>
+//     )
+// }
