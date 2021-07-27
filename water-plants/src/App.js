@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import SignInForm from "./components/sign-in form";
-import SignIn from './components/sign-in';
+// import SignIn from './components/sign-in';
 
 
 const initialFormValues = {
@@ -22,19 +22,26 @@ function App() {
 			...formValues, [name]: value
 		})
 	}
+
+	const submitForm = () => {
+		const user = {
+		username: formValues.username,
+		phonenumber: formValues.phonenumber,
+		password: formValues.password,
+		}
+		console.log(user)
+	}
 	
 	
 	return (
 	<div className='App'>
-		
 	<SignInForm
 	 values={formValues}
 	 update={updateForm}
-	//  submit={submitForm}
+	 submit={submitForm}
 	 change={inputChange}
-	 
-	/>
 	
+	/>
 	</div>
 	)
 }

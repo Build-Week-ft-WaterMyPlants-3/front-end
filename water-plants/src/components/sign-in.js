@@ -3,6 +3,8 @@ import SignInForm from './sign-in form'
 // import { useHistory } from 'react-router'
 
 
+	
+
 export default function SignIn() {
     // const history = useHistory()
     // const routeToSignIn = () => {
@@ -19,7 +21,10 @@ export default function SignIn() {
             />
             <button>Sign In</button>
             <SignInForm 
-             
+            //  values={formValues}
+            //  update={updateForm}
+            //  submit={submitForm}
+            //  change={inputChange}
             />
             </div>
 

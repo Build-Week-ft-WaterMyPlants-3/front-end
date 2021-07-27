@@ -61,7 +61,7 @@ return (
         </div>
 
         <div className="form-submit input">
-            <button id='signup-button' name='submitBtn' disabled={disabled}>Sign In</button>
+            <button id='signup-button' name='submitBtn' /*disabled={disabled}*/>Sign In</button>
         </div>
         </div>
     </form>
