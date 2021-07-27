@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import SignInForm from "./components/sign-in form";
-import SignIn from './components/sign-in';
+
+
 
 ReactDOM.render(
 	<React.StrictMode>
