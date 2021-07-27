@@ -18,18 +18,18 @@ function SignupForm() {
   };
 
   const handleSubmit = (e) => {
-    e.prevenDefault();
+    e.preventDefault();
     const newAccount = { ...userSignup, id: new Date().getTime().toString() };
 
     setAccounts([...accounts, newAccount]);
     setUserSignup({ username: "", phoneNumber: "", password: "" });
-    // console.log(accounts);
   };
+  console.log(accounts);
 
   return (
     <form className="form" onSubmit={handleSubmit}>
       {/* {error} */}
-      <h2>Login</h2>
+      <h2>Sign Up</h2>
 
       <div className="label-box">
         <label htmlFor="name">User name:</label>
