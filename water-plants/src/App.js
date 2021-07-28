@@ -8,11 +8,7 @@ import axiosWithAuth from './utils/axiosWithAuth';
 const UserHeader = () => {
 	return (
 		<div>
-			<Link to='/protected'>
-				<div>
-					<h1>Welcome to Water My Plants!</h1>
-				</div>
-			</Link>
+			<Link to='/protected'>Water My Plants</Link>
 		</div>
 	);
 };
