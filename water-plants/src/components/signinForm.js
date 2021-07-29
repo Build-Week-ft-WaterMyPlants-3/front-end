@@ -9,15 +9,18 @@ const [userSignin, setUserSignin] = useState({
 	password: '',
 })
 
+const [accounts, setAccounts] = useState([]);
 
 const onSubmit = evt => {
     evt.preventDefault()
-    const user = {
+    const newAccount = { ...userSignin, id: new Date().getTime().toString() };
+    setAccounts([...accounts, newAccount])
+    setUserSignin({
 		User_name: userSignin.User_name,
 		phoneNumber: userSignin.phoneNumber,
 		password: userSignin.password,
-		}
-		console.log(user)
+		});
+		
 }
 
 
@@ -29,15 +32,15 @@ const onChange = evt => {
 
 
 
-	const updateForm = (inputName, inputValue) => {
-		setUserSignin({...userSignin, [inputName]: inputValue})
-	}
+	// const updateForm = (inputName, inputValue) => {
+	// 	setUserSignin({...userSignin, [inputName]: inputValue})
+	// }
 
-	const inputChange = (name, value) => {
-		setUserSignin({
-			...userSignin, [name]: value
-		})
-	}
+	// const inputChange = (name, value) => {
+	// 	setUserSignin({
+	// 		...userSignin, [name]: value
+	// 	})
+	// }
 
 	// const submitForm = () => {
 	// 	// const user = {
@@ -90,6 +93,13 @@ return (
 
         <div className="form-submit input">
             <button id='signup-button' name='submitBtn' type='submit' /*disabled={disabled}*/>Sign In</button>
+            {accounts.map((curElem) => {
+                return (
+                    <div key={curElem.id}>
+                        <p>{curElem.User_name}</p>
+                        </div>
+                )
+            })}
         </div>
          
         {/* values={formValues}
