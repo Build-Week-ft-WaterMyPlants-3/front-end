@@ -1,45 +1,25 @@
 import React, { useState } from 'react'
 import "./common/signupForm.css";
 
-// const initialFormValues = {
-// 	username: '',
-// 	phonenumber: '',
-// 	password: '',
-// }
-
-// export default function SignInForm(props) {
-// const {
-//     values,
-//     submit,
-//     change,
-//     // disabled,
-//     errors,
-// } = props
 
 export default function SignInForm() {
 const [userSignin, setUserSignin] = useState({
-    username: '',
-	phonenumber: '',
+    User_name: '',
+	phoneNumber: '',
 	password: '',
 })
 
-// const [formValues, setFormValues] = useState(initialFormValues)
 
 const onSubmit = evt => {
     evt.preventDefault()
     const user = {
-		username: userSignin.username,
-		phonenumber: userSignin.phonenumber,
+		User_name: userSignin.User_name,
+		phoneNumber: userSignin.phoneNumber,
 		password: userSignin.password,
 		}
 		console.log(user)
 }
 
-// const [open, setOpen] = useState(false)
-
-// function toggle() {
-//     setOpen(wasOpened => !wasOpened)
-// }
 
 const onChange = evt => {
     const { name, value } = evt.target
@@ -80,9 +60,8 @@ return (
                     <input
                     id="username-input"
                     type='text'
-                    name='username'
+                    name='User_name'
                     onChange={onChange}
-                    // value={values.name}
                     />
                 </label>
         </div>
@@ -94,7 +73,6 @@ return (
                     id='phonenumber-input'
                     type='text'
                     onChange={onChange}
-                    // value={values.phonenumber}
                     />
                 </label>
                 </div>
@@ -106,7 +84,6 @@ return (
                     id='password-input'
                     type='password'
                     onChange={onChange}
-                    // value={values.password}
                     />
                 </label>
         </div>
