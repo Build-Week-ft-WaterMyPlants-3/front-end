@@ -3,7 +3,7 @@ import "./signupForm.css";
 
 function SignupForm() {
   const [userSignup, setUserSignup] = useState({
-    username: "",
+    User_name: "",
     phoneNumber: "",
     password: "",
   });
@@ -13,6 +13,7 @@ function SignupForm() {
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
+
     setUserSignup({ ...userSignup, [name]: value });
     // console.log(name);
   };
@@ -22,7 +23,7 @@ function SignupForm() {
     const newAccount = { ...userSignup, id: new Date().getTime().toString() };
 
     setAccounts([...accounts, newAccount]);
-    setUserSignup({ username: "", phoneNumber: "", password: "" });
+    setUserSignup({ User_name: "", phoneNumber: "", password: "" });
   };
   console.log(accounts);
 
@@ -37,7 +38,8 @@ function SignupForm() {
           type="text"
           name="username"
           id="username"
-          value={userSignup.username}
+          autocomplete="off"
+          value={userSignup.User_name}
           onChange={handleChange}
         />
       </div>
@@ -48,6 +50,7 @@ function SignupForm() {
           type="tel"
           name="phoneNumber"
           id="phoneNumber"
+          autocomplete="off"
           value={userSignup.phoneNumber}
           onChange={handleChange}
         />
@@ -59,6 +62,7 @@ function SignupForm() {
         <input
           type="password"
           name="password"
+          autocomplete="off"
           id="password"
           value={userSignup.password}
           onChange={handleChange}
