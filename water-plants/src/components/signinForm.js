@@ -1,45 +1,28 @@
 import React, { useState } from 'react'
 import "./common/signupForm.css";
 
-// const initialFormValues = {
-// 	username: '',
-// 	phonenumber: '',
-// 	password: '',
-// }
-
-// export default function SignInForm(props) {
-// const {
-//     values,
-//     submit,
-//     change,
-//     // disabled,
-//     errors,
-// } = props
 
 export default function SignInForm() {
 const [userSignin, setUserSignin] = useState({
-    username: '',
-	phonenumber: '',
+    User_name: '',
+	phoneNumber: '',
 	password: '',
 })
 
-// const [formValues, setFormValues] = useState(initialFormValues)
+const [accounts, setAccounts] = useState([]);
 
 const onSubmit = evt => {
     evt.preventDefault()
-    const user = {
-		username: userSignin.username,
-		phonenumber: userSignin.phonenumber,
+    const newAccount = { ...userSignin, id: new Date().getTime().toString() };
+    setAccounts([...accounts, newAccount])
+    setUserSignin({
+		User_name: userSignin.User_name,
+		phoneNumber: userSignin.phoneNumber,
 		password: userSignin.password,
-		}
-		console.log(user)
+		});
+		
 }
 
-// const [open, setOpen] = useState(false)
-
-// function toggle() {
-//     setOpen(wasOpened => !wasOpened)
-// }
 
 const onChange = evt => {
     const { name, value } = evt.target
@@ -49,15 +32,15 @@ const onChange = evt => {
 
 
 
-	const updateForm = (inputName, inputValue) => {
-		setUserSignin({...userSignin, [inputName]: inputValue})
-	}
+	// const updateForm = (inputName, inputValue) => {
+	// 	setUserSignin({...userSignin, [inputName]: inputValue})
+	// }
 
-	const inputChange = (name, value) => {
-		setUserSignin({
-			...userSignin, [name]: value
-		})
-	}
+	// const inputChange = (name, value) => {
+	// 	setUserSignin({
+	// 		...userSignin, [name]: value
+	// 	})
+	// }
 
 	// const submitForm = () => {
 	// 	// const user = {
@@ -80,9 +63,8 @@ return (
                     <input
                     id="username-input"
                     type='text'
-                    name='username'
+                    name='User_name'
                     onChange={onChange}
-                    // value={values.name}
                     />
                 </label>
         </div>
@@ -94,7 +76,6 @@ return (
                     id='phonenumber-input'
                     type='text'
                     onChange={onChange}
-                    // value={values.phonenumber}
                     />
                 </label>
                 </div>
@@ -106,13 +87,19 @@ return (
                     id='password-input'
                     type='password'
                     onChange={onChange}
-                    // value={values.password}
                     />
                 </label>
         </div>
 
         <div className="form-submit input">
             <button id='signup-button' name='submitBtn' type='submit' /*disabled={disabled}*/>Sign In</button>
+            {accounts.map((curElem) => {
+                return (
+                    <div key={curElem.id}>
+                        <p>{curElem.User_name}</p>
+                        </div>
+                )
+            })}
         </div>
          
         {/* values={formValues}
